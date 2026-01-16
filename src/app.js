@@ -1,12 +1,13 @@
 "use strict";
 
 document.addEventListener("DOMContentLoaded", () => {
-  // SElecting Elements;
+  // Select Elements;
   const result = document.querySelector("#result");
   const againBtn = document.querySelector("#againBtn");
   const input = document.querySelector("#input");
   const checkBtn = document.querySelector("#checkBtn");
   const highSocer = document.querySelector("#highSocer");
+  const heading = document.querySelector("#heading");
 
   // SecretNumber;
   let secretNumber = Math.trunc(Math.random() * 20) + 1;
@@ -19,6 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const dispalyMessage = function (msg) {
     document.querySelector("#guidText").textContent = msg;
   };
+
   // display BackgroundColor;
   const dispalyBg = function (bg) {
     document.body.style.backgroundColor = bg;
@@ -28,7 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
   checkBtn.addEventListener("click", () => {
     const inputValue = Number(input.value);
 
-    //Conditions;
+    // Conditions;
     if (!inputValue) {
       dispalyMessage("⛔ No Number");
     } else if (inputValue === secretNumber) {
@@ -36,6 +38,7 @@ document.addEventListener("DOMContentLoaded", () => {
       result.textContent = secretNumber;
       dispalyMessage("🎉👏  Correct Number!");
       checkBtn.classList.add("disabledBtn");
+      heading.textContent = "You got it 👍";
 
       if (score > highMark) {
         highMark = score;
@@ -56,8 +59,11 @@ document.addEventListener("DOMContentLoaded", () => {
         result.textContent = secretNumber;
         checkBtn.classList.add("disabledBtn");
         dispalyMessage("💥You lost the game!");
+        heading.textContent = "Oops 😦, Try Again";
       }
     }
+
+    input.value = "";
   });
 
   //  AganinBtn;
@@ -70,6 +76,7 @@ document.addEventListener("DOMContentLoaded", () => {
     result.textContent = "?";
     input.value = "";
     score = 20;
+    heading.textContent = "Guess Hide number!";
     document.querySelector("#score").innerHTML = score;
   });
 });

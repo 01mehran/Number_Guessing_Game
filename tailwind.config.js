@@ -4,7 +4,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        myFont: ["Arvo", "serif"],
+        myFont: ["Arvo", "cursive"],
       },
       colors: {
         dark: "#222",
