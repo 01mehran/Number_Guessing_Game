@@ -1,5 +1,8 @@
 "use strict";
 
+import { dispalyMessage } from "./utils.js";
+import { dispalyBg } from "./utils.js";
+
 document.addEventListener("DOMContentLoaded", () => {
   // Select Elements;
   const result = document.querySelector("#result");
@@ -15,16 +18,6 @@ document.addEventListener("DOMContentLoaded", () => {
   // create two extra variables;
   let score = 20;
   let highMark = 0;
-
-  //displayGuiedText
-  const dispalyMessage = function (msg) {
-    document.querySelector("#guidText").textContent = msg;
-  };
-
-  // display BackgroundColor;
-  const dispalyBg = function (bg) {
-    document.body.style.backgroundColor = bg;
-  };
 
   // Add EventListener;
   checkBtn.addEventListener("click", () => {
