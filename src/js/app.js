@@ -1,7 +1,10 @@
 "use strict";
 
+// utils;
 import { dispalyMessage } from "./utils.js";
 import { dispalyBg } from "./utils.js";
+
+import { resetGame } from "./resetGame.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   // Select Elements;
@@ -15,11 +18,9 @@ document.addEventListener("DOMContentLoaded", () => {
   // SecretNumber;
   let secretNumber = Math.trunc(Math.random() * 20) + 1;
 
-  // create two extra variables;
   let score = 20;
   let highMark = 0;
 
-  // Add EventListener;
   checkBtn.addEventListener("click", () => {
     const inputValue = Number(input.value);
 
@@ -59,17 +60,14 @@ document.addEventListener("DOMContentLoaded", () => {
     input.value = "";
   });
 
-  //  AganinBtn;
-  againBtn.addEventListener("click", () => {
-    secretNumber = Math.trunc(Math.random() * 20) + 1;
-
-    dispalyMessage("🌟 Start guessing");
-    dispalyBg("oklch(48.8% 0.243 264.376)");
-    checkBtn.classList.remove("disabledBtn");
-    result.textContent = "?";
-    input.value = "";
-    score = 20;
-    heading.textContent = "Guess Hide number!";
-    document.querySelector("#score").innerHTML = score;
+  resetGame({
+    againBtn,
+    checkBtn,
+    result,
+    input,
+    score,
+    heading,
+    setScore: (val) => (score = val),
+    setSecretNumber: (val) => (secretNumber = val),
   });
 });
