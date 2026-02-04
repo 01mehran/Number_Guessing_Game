@@ -2,6 +2,10 @@
 
 > A responsive number guessing game built with JavaScript and Tailwind CSS, inspired by **Jonas Schmedtmann's** project but with a distinct implementation.
 
+## preview 📷
+
+![output](/public/output.png)
+
 ## Features Implemented
 
 ### 🎮 Core Gameplay
